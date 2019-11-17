@@ -2,7 +2,7 @@
 
 SystemVerilog language server client for Visual Studio Code
 
-![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/dalance.svls-vscode)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/dalance.svls-vscode)](https://marketplace.visualstudio.com/items?itemName=dalance.svls-vscode)
 
 ## Features
 
