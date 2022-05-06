@@ -23,9 +23,17 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"grammars": [
+			{
+				"language": "systemverilog",
+				"scopeName": "source.systemverilog",
+				"path": "./syntaxes/systemverilog.tmLanguage.json"
+			}
+		],
 		"languages": [
 			{
 				"id": "systemverilog",
+				"configuration": "./language-configuration.json",
 				"extensions": [
 					".sv",
 					".svh"
