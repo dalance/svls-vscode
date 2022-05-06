@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { workspace, ExtensionContext } from 'vscode';
+import { commands, workspace, ExtensionContext, window, Uri } from 'vscode';
 
 import {
 	LanguageClient,
@@ -11,6 +11,27 @@ import {
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
+	context.subscriptions.push(
+		commands.registerCommand("svls-vscode.setSvlintTomlPath", () => {
+			window.showOpenDialog({
+				canSelectFiles: true,
+				canSelectMany: false,
+				defaultUri: Uri.file("/"),
+				filters: {"Toml": ["toml"]},
+				openLabel: "Set config.toml"
+			}).then((fileUri) => {
+				if (fileUri && fileUri[0]) {
+					workspace.getConfiguration("svls-vscode").update("svlintToml.path", fileUri[0].fsPath)
+					window.showInformationMessage("Reload the window to use the selected svlint configuration");
+				}
+			})
+		})
+	)
+
+	// Get the configured .svlint.toml config path from user/workspace settings
+	let svlint_config: string | undefined = workspace.getConfiguration("svls-vscode").get("svlintToml.path");
+	if (typeof svlint_config !== undefined)	process.env.SVLINT_CONFIG = svlint_config;
+
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
 	let serverOptions: ServerOptions = {
