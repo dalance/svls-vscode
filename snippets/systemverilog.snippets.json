@@ -1,0 +1,604 @@
+{
+	"module with parameters": {
+		"prefix": ["paramod", "module #"],
+		"body": [
+			"module ${1:moduleName}",
+			"#(${2:parameters}",
+			")(${3:ports}",
+			");",
+			"  $0",
+			"endmodule"
+		],
+		"description": "module with parameters"
+	},
+	"module without parameters": {
+		"prefix": "module",
+		"body": [
+			"module ${1:moduleName}",
+			"( ${2:ports}",
+			");",
+			"  $0",
+			"endmodule"
+		],
+		"description": "module without parameters"
+	},
+	"instantiate module": {
+		"prefix": ["set module", "instantiate module"],
+		"body": [
+			"${1:mod_name} u_${1:mod_name}",
+			"( .${2:port_name} (${3:connection_name})",
+			");$0"
+		],
+		"description": "Instantiate module: mod u_mod (port_list);"
+	},
+	"begin/end": {
+		"prefix": "begin",
+		"body": [
+			"begin",
+			"  $1",
+			"end"
+		],
+		"description": "begin ... end block"
+	},
+	"end": {
+		"prefix": "end",
+		"body": "end",
+		"description": "end keyword"
+	},
+	"initial block": {
+		"prefix": "initial",
+		"body": [
+			"initial begin",
+			"  $0",
+			"end"
+		],
+		"description": "initial begin ... end"
+	},
+	"initial statement": {
+		"prefix": "initial",
+		"body": [
+			"initial",
+			"  $0"
+		],
+		"description": "initial ..."
+	},
+	"case": {
+		"prefix": "case",
+		"body": [
+			"case (${1:param})",
+			"  $2: $3",
+			"  default: $4",
+			"endcase"
+		],
+		"description": "case () ... endcase"
+	},
+	"casex": {
+		"prefix": "casex",
+		"body": [
+			"casex (${1:param})",
+			"  $2: $3",
+			"  default: $4",
+			"endcase"
+		],
+		"description": "casex () ... endcase"
+	},
+	"casez": {
+		"prefix": "casez",
+		"body": [
+			"casez (${1:param})",
+			"  $2: $3",
+			"  default: $4",
+			"endcase"
+		],
+		"description": "casez () ... endcase"
+	},
+	"reg": {
+		"prefix": "reg",
+		"body": [
+			"reg $1;"
+		],
+		"description": "reg reg_name;"
+	},
+	"regarray": {
+		"prefix": ["regarray", "reg ["],
+		"body": [
+			"reg [$1:$2] $3;"
+		],
+		"description": "reg [N:0] reg_name;"
+	},
+	"regmemory": {
+		"prefix": ["regmemory","memory"],
+		"body": [
+			"reg [$1:$2] $3 [$4:$5];"
+		],
+		"description": "reg [N:0] reg_name [0:M];"
+	},
+	"wire": {
+		"prefix": "wire",
+		"body": [
+			"wire $1;"
+		],
+		"description": "wire wire_name;"
+	},
+	"wirearray": {
+		"prefix": ["wirearray", "wire ["],
+		"body": [
+			"wire [$1:$2] $3;"
+		],
+		"description": "wire [N:0] wire_name;"
+	},
+	"array": {
+		"prefix": "array",
+		"body": "[${1:8}:${2:0}]$0",
+		"description": "[x:y]"
+	},
+	"parameter": {
+		"prefix": "parameter",
+		"body": [
+			"parameter $1 = $2;"
+		],
+		"description": "paramter var = val;"
+	},
+	"localparam": {
+		"prefix": "localparam",
+		"body": "localparam $1 = $2;",
+		"description": "localparam var = val"
+	},
+	"integer": {
+		"prefix": "integer",
+		"body": "integer $1;",
+		"description": "integer int_name"
+	},
+	"signed": {
+		"prefix": "signed",
+		"body": "signed $1 $2;",
+		"description": "signed datatype name"
+	},
+	"include": {
+		"prefix": ["include", "`include"],
+		"body": [
+			"`include \"$1\""
+		],
+		"description": "`include \"..\""
+	},
+	"define": {
+		"prefix": ["def", "define", "`define"],
+		"body": [
+			"`define ${1:macro}"
+		],
+		"description": "`define macro"
+	},
+	"ifdef": {
+		"prefix": ["ifdef", "`ifdef"],
+		"body": "`ifdef ${1:macro}",
+		"description": "`ifdef macro"
+	},
+	"ifndef": {
+		"prefix": ["ifndef", "`ifndef"],
+		"body": "`ifndef ${1:macro}",
+		"description": "`ifndef macro"
+	},
+	"elsif": {
+		"prefix": ["elsif", "`elsif"],
+		"body": "`elsif ${1:macro}",
+		"description": "`elsif macro"
+	},
+	"endif": {
+		"prefix": ["endif", "`endif"],
+		"body": "`endif ${1:macro}",
+		"description": "`endif macro"
+	},
+	"undef": {
+		"prefix": ["undef", "`undef"],
+		"body": "`undef ${1:macro}",
+		"description": "`undef macro"
+	},
+	"timescale": {
+		"prefix": ["ts", "timescale", "`timescale"],
+		"body": [
+			"`timescale ${1:1ps}/${2:1ps}$0"
+		]
+	},
+	"default_nettype": {
+		"prefix": ["default_nettype", "`default_nettype"],
+		"body": "`default_nettype ${1:none}",
+		"description": "Set default nettype"
+	},
+	"ternary": {
+		"prefix": "ternary",
+		"body": [
+			"$1 ? $2 : $3"
+		],
+		"description": "a ? b : c"
+	},
+	"if block": {
+		"prefix": "if",
+		"body": [
+			"if (${1:condition}) begin",
+			"  $0",
+			"end"
+		],
+		"description": "if (...) begin ... end"
+	},
+	"if statement": {
+		"prefix": "if",
+		"body": [
+			"if (${1:condition})",
+			"  $0"
+		],
+		"description": "if (...) ..."
+	},
+	"if else block": {
+		"prefix": "if else",
+		"body": [
+			"if (${1:condition}) begin",
+			"  $2",
+			"end else begin",
+			"  $3",
+			"end"
+		],
+		"description": "if (...) begin ... end else begin ... end"
+	},
+	"if else statement": {
+		"prefix": "if else",
+		"body": [
+			"if (${1:condition})",
+			"  $2",
+			"else",
+			"  $3"
+		],
+		"description": "if (...) ... else ..."
+	},
+	"else if block": {
+		"prefix": "else if",
+		"body": [
+			"else if (${1:condition}) begin",
+			"  $2",
+			"end"
+		],
+		"description": "else if (...) begin ... end"
+	},
+	"else if statement": {
+		"prefix": "else if",
+		"body": [
+			"else if (${1:condition})",
+			"  $2"
+		],
+		"description": "else if (...) ..."
+	},
+	"else block": {
+		"prefix": "else",
+		"body": [
+			"else (${1:condition}) begin",
+			"  $2",
+			"end"
+		],
+		"description": "else (...) begin ... end"
+	},
+	"else statement": {
+		"prefix": "else",
+		"body": [
+			"else (${1:condition})",
+			"  $2"
+		],
+		"description": "else (...) ..."
+	},
+	"for loop block": {
+		"prefix": "for",
+		"body": [
+			"for ($1 = $2; $3; $4) begin",
+			"  $0",
+			"end"
+		],
+		"description": "for (...) begin ... end"
+	},
+	"for loop statement": {
+		"prefix": "for",
+		"body": [
+			"for ($1 = $2; $3; $4)",
+			"  $0"
+		],
+		"description": "for (...) ..."
+	},
+	"generate for loop block": {
+		"prefix": "for",
+		"body": [
+			"for (genvar $1 = $2; $3; $4) begin",
+			"  $0",
+			"end"
+		],
+		"description": "for (...) begin ... end"
+	},
+	"generate for loop statement": {
+		"prefix": "for",
+		"body": [
+			"for (genvar $1 = $2; $3; $4)",
+			"  $0"
+		],
+		"description": "for (...) ..."
+	},
+	"while loop block": {
+		"prefix": "while",
+		"body": [
+			"while ($1) begin",
+			"  $2",
+			"end"
+		],
+		"description": "while (...) begin ... end"
+	},
+	"forever block": {
+		"prefix": "forever",
+		"body": [
+			"forever begin",
+			"  $0",
+			"end"
+		],
+		"description": "forever begin ... end"
+	},
+	"forever statement": {
+		"prefix": "forever",
+		"body": [
+			"forever",
+			"  $0"
+		],
+		"description": "forever ..."
+	},
+	"function": {
+		"prefix": "function",
+		"body": [
+			"function ${1:return_value} ${2:name}",
+			"( ${3:port_list}",
+			");",
+			"  $0",
+			"endfunction"
+		],
+		"description": "function definition"
+	},
+	"program": {
+		"prefix": "program",
+		"body": [
+			"program ${1:name}",
+			"( ${2:port_list}",
+			");",
+			"  $0",
+			"endprogram"
+		],
+		"description": "program definition"
+	},
+	"generate": {
+		"prefix": "generate",
+		"body": [
+			"generate",
+			"  $1",
+			"endgenerate"
+		],
+		"description": "generate (...) ... endgenerate"
+	},
+	"always_ff block": {
+        "prefix": "always_ff",
+		"body": [
+            "always_ff @( ${1:clock} ) begin : ${2:blockName}",
+			"  $0",
+			"end"
+		],
+		"description": "always_ff block"
+	},
+	"always_comb block": {
+        "prefix": "always_comb",
+		"body": [
+            "always_comb begin : ${1:blockName}",
+			"  $0",
+			"end"
+		],
+		"description": "always_comb block"
+	},
+	"always_latch block": {
+        "prefix": "always_latch",
+		"body": [
+            "always_latch begin : ${1:blockName}",
+			"  $0",
+			"end"
+		],
+		"description": "always_latch block"
+	},
+    "always_ff statement": {
+        "prefix": "always_ff",
+        "body": [
+            "always_ff @( ${1:clock} ) : ${2:statementName}",
+            "  $0"
+        ],
+        "description": "always_ff statement"
+    },
+    "always_comb statement": {
+        "prefix": "always_comb",
+        "body": [
+            "always_comb : ${1:statementName}",
+            "  $0"
+        ],
+        "description": "always_comb statement"
+    },
+    "always_latch statement": {
+        "prefix": "always_latch",
+        "body": [
+            "always_latch : ${1:statementName}",
+            "  $0"
+        ],
+        "description": "always_latch statement"
+    },
+	"bit": {
+		"prefix": "bit",
+		"body": "bit ${1:bit_name} = ${2:value};"
+	},
+	"int": {
+		"prefix": "int",
+		"body": "int ${1:int_name} = ${2:value};"
+	},
+	"shortint": {
+		"prefix": "shortint",
+		"body": "shortint ${1:name} = ${2:value};"
+	},
+	"longint": {
+		"prefix": "longint",
+		"body": "longint ${1:name} = ${2:value};"
+	},
+	"byte": {
+		"prefix": "byte",
+		"body": "byte ${1:byte:_name} = ${2:value};"
+	},
+	"logic": {
+		"prefix": "logic",
+		"body": "logic ${1:logic_name} = ${2:value};"
+	},
+	"logicarray": {
+		"prefix": "logica",
+		"body": "logic [$2:$3] ${1:logic_name} = ${4:value};"
+	},
+	"packed": {
+		"prefix": "packed",
+		"body": "packed"
+	},
+	"this": {
+		"prefix": "this",
+		"body": "this"
+	},
+	"typedef struct packed": {
+		"prefix": "typedef struct packed",
+		"body": [
+			"typedef struct packed {",
+			"  $0",
+			"} ${1:struct_name};"
+		],
+		"description": "typedef struct packed { ... } name"
+	},
+	"class": {
+		"prefix": "class",
+		"body": [
+			"class ${1:className};",
+			"  function new();",
+			"    $0",
+			"  endfunction //new()",
+			"endclass //$1"
+		],
+		"description": "class name; ... endclass"
+	},
+	"class extends": {
+		"prefix": "class extends",
+		"body": [
+			"class ${1:className} extends ${2:superClass};",
+			"  function new();",
+			"    $0",
+			"  endfunction //new()",
+			"endclass //$1 extends $2"
+		],
+		"description": "class name extends super; ... endclass"
+	},
+	"task": {
+		"prefix": "task",
+		"body": [
+			"task ${1:automatic} ${2:taskName}(${3:arguments});",
+			"  $0",
+			"endtask //$1"
+		],
+		"description": "task name; ... endtask"
+	},
+	"package": {
+		"prefix": "package",
+		"body": [
+			"package ${1:package_name}",
+			"  $2",
+			"endpackage"
+		],
+		"description": "package name; ... endpackage"
+	},
+	"import": {
+		"prefix": "import",
+		"body": "import ${1:name}::${2:scope};",
+		"description": "import name::scope"
+	},
+	"interface": {
+		"prefix": "interface",
+		"body": [
+			"interface ${1:interfacename};",
+			"  $0",
+			"endinterface //$1"
+		],
+		"description": "interface name; ... endinterface"
+	},
+	"modport": {
+		"prefix": "modport",
+		"body": [
+			"modport ${1:identifier} (",
+			"input ${2:input_ports},",
+			"output ${3:output_ports}",
+			");"
+		],
+		"description": "modport name (input ports_in, output ports_out); "
+	},
+	"display": {
+		"prefix": "display",
+		"body": [
+			"\\$display(\"$1\"$2);$0"
+		],
+		"description": "$display(\"...\", params...)"
+	},
+	"typedef enum": {
+		"prefix": "typedef enum",
+		"body": [
+			"typedef enum ${1:data_type} { $0 } ${2:name};"
+		],
+		"description": "typedef enum (data_type) { ... } name"
+	},
+	"enum": {
+		"prefix": ["en", "enum"],
+		"body": [
+			"enum ${1:data_type} { $0 } ${2:name}"
+		],
+		"description": "enum (data_type) { ... } name"
+	},
+	"associative array": {
+		"prefix": "AA",
+		"body": "${1:data_type} ${2:name}[${3:index_type}];$0",
+		"description": "Associative array(AA)."
+	},
+	"assert": {
+		"prefix": "assert",
+		"body": [
+			"${1:assert_name}: assert (${2:condition}) ${3:success_process}",
+			"  else ${4:error_process}"
+		],
+		"description": "...: assert (...) ... else ..."
+	},
+	"assert property": {
+		"prefix": "assert property",
+		"body": [
+			"assert property (${1:condition}) ${2:success_process}",
+			"  else ${3:error_process}"
+		],
+		"description": "assert property (...) ... else ..."
+	},
+	"property": {
+		"prefix": "property",
+		"body": [
+			"property ${1:property_name}",
+			"  ${2:preperty_condition}",
+			"endproperty"
+		],
+		"description": "assert() ... else ..."
+	},
+	"fork-join": {
+		"prefix": "fork join",
+		"body": [
+			"fork",
+			"  $0",
+			"join"
+		],
+		"description": "fork ... join"
+	},
+	"assign": {
+		"prefix": "assign",
+		"body": [
+			"assign ${1:var} = ${2:value};$0"
+		],
+		"description": "continuous assignment statement"
+	}
+}
