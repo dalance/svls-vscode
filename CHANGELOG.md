@@ -6,4 +6,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.0.2] - 2022-05-09
+### Added
+
+- Add syntax highlighting [#14](https://github.com/dalance/svls-vscode/pull/14)
+- Add snippets [#13](https://github.com/dalance/svls-vscode/pull/13)
+- Add extension setting to configure SVLINT_CONFIG env variable [#12](https://github.com/dalance/svls-vscode/pull/12)
+
+## [0.0.1] - 2019-11-15
+
 - Initial release
