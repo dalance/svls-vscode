@@ -1,4 +1,11 @@
 {
+	"$comment": {
+		"copyright": [
+			"Copyright (c) 2018 Eirik Prestegårdshus",
+			"Copyright (c) 2022 Aadi Desai"
+		],
+		"license": "MIT License"
+	},
 	"name": "SystemVerilog",
 	"scopeName": "source.systemverilog",
 	"fileTypes": [
