@@ -42,6 +42,12 @@
 					"SystemVerilog"
 				]
 			}
+		],
+		"snippets": [
+			{
+				"language": "systemverilog",
+				"path": "./snippets/systemverilog.snippets.json"
+			}
 		]
 	},
 	"scripts": {
