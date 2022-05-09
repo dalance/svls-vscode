@@ -1,4 +1,12 @@
 {
+	"$comment": {
+		"copyright": [
+			"Copyright (c) 2018 Eirik Prestegårdshus",
+			"Copyright (c) 2016-2020 Masahiro H",
+			"Copyright (c) 2022 Aadi Desai"
+		],
+		"license": "MIT License"
+	},
 	"module with parameters": {
 		"prefix": ["paramod", "module #"],
 		"body": [
