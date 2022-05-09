@@ -571,23 +571,23 @@
 	"assert": {
 		"prefix": "assert",
 		"body": [
-			"${1:assert_name}: assert (${2:condition}) ${3:success_process}",
-			"  else ${4:error_process}"
+			"${1:assert_name}: assert (${2:condition}) ${3:success_process};",
+			"  else ${4:error_process};"
 		],
 		"description": "...: assert (...) ... else ..."
 	},
 	"assert property": {
 		"prefix": "assert property",
 		"body": [
-			"assert property (${1:condition}) ${2:success_process}",
-			"  else ${3:error_process}"
+			"assert property (${1:condition}) ${2:success_process};",
+			"  else ${3:error_process};"
 		],
 		"description": "assert property (...) ... else ..."
 	},
 	"property": {
 		"prefix": "property",
 		"body": [
-			"property ${1:property_name}",
+			"property ${1:property_name};",
 			"  ${2:preperty_condition}",
 			"endproperty"
 		],

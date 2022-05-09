@@ -51,7 +51,9 @@
 			{
 				"language": "systemverilog",
 				"scopeName": "source.systemverilog",
-				"path": "./syntaxes/systemverilog.tmLanguage.json"
+				"path": "./syntaxes/systemverilog.tmLanguage.json",
+				"balancedBracketScopes": [ "*" ],
+				"unbalancedBracketScopes": [ "keyword.sva.systemverilog" ]
 			}
 		],
 		"languages": [
