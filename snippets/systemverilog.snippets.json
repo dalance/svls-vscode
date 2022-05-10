@@ -412,7 +412,7 @@
     "always_ff statement": {
         "prefix": "always_ff",
         "body": [
-            "always_ff @( ${1:clock} ) : ${2:statementName}",
+            "always_ff @( ${1:clock} )",
             "  $0"
         ],
         "description": "always_ff statement"
@@ -420,7 +420,7 @@
     "always_comb statement": {
         "prefix": "always_comb",
         "body": [
-            "always_comb : ${1:statementName}",
+            "always_comb",
             "  $0"
         ],
         "description": "always_comb statement"
@@ -428,7 +428,7 @@
     "always_latch statement": {
         "prefix": "always_latch",
         "body": [
-            "always_latch : ${1:statementName}",
+            "always_latch",
             "  $0"
         ],
         "description": "always_latch statement"
