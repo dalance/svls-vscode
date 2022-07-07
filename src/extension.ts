@@ -19,7 +19,7 @@ export function activate(context: ExtensionContext) {
 				defaultUri: Uri.file("/"),
 				filters: {"Toml": ["toml"]},
 				openLabel: "Set config.toml"
-			}).then((fileUri) => {
+			}).then((fileUri: Uri[] | undefined) => {
 				if (fileUri && fileUri[0]) {
 					workspace.getConfiguration("svls-vscode").update("svlintToml.path", fileUri[0].fsPath)
 					window.showInformationMessage("Reload the window to use the selected svlint configuration");
