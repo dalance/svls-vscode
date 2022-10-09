@@ -10,24 +10,7 @@ import {
 
 let client: LanguageClient;
 
-export function activate(context: ExtensionContext) {
-	context.subscriptions.push(
-		commands.registerCommand("svls-vscode.setSvlintTomlPath", () => {
-			window.showOpenDialog({
-				canSelectFiles: true,
-				canSelectMany: false,
-				defaultUri: Uri.file("/"),
-				filters: {"Toml": ["toml"]},
-				openLabel: "Set config.toml"
-			}).then((fileUri: Uri[] | undefined) => {
-				if (fileUri && fileUri[0]) {
-					workspace.getConfiguration("svls-vscode").update("svlintToml.path", fileUri[0].fsPath)
-					window.showInformationMessage("Reload the window to use the selected svlint configuration");
-				}
-			})
-		})
-	)
-
+function startServer() {
 	// Get the configured .svlint.toml config path from user/workspace settings
 	let svlint_config: string | undefined = workspace.getConfiguration("svls-vscode").get("svlintToml.path");
 	if (typeof svlint_config !== undefined)	process.env.SVLINT_CONFIG = svlint_config;
@@ -59,9 +42,37 @@ export function activate(context: ExtensionContext) {
 	client.start();
 }
 
-export function deactivate(): Thenable<void> | undefined {
+function stopServer(): Thenable<void> {
 	if (!client) {
-		return undefined;
+		return Promise.resolve();
 	}
 	return client.stop();
+}
+
+export function activate(context: ExtensionContext) {
+	context.subscriptions.push(
+		commands.registerCommand("svls-vscode.setSvlintTomlPath", () => {
+			window.showOpenDialog({
+				canSelectFiles: true,
+				canSelectMany: false,
+				defaultUri: Uri.file("/"),
+				filters: {"Toml": ["toml"]},
+				openLabel: "Set config.toml"
+			}).then((fileUri: Uri[] | undefined) => {
+				if (fileUri && fileUri[0]) {
+					workspace.getConfiguration("svls-vscode").update("svlintToml.path", fileUri[0].fsPath)
+					window.showInformationMessage("Reload the window to use the selected svlint configuration");
+				}
+			})
+		}),
+		commands.registerCommand("svls-vscode.restartSvls", () => {
+			stopServer().then(startServer, startServer);
+		})
+	)
+
+	startServer();
+}
+
+export function deactivate(): Thenable<void> {
+	return stopServer();
 }

@@ -30,6 +30,11 @@
 				"title": "Set path to svlint .toml configuration file",
 				"category": "svls-vscode",
 				"icon": "$(gear)"
+			},
+			{
+				"command": "svls-vscode.restartSvls",
+				"title": "Restart svls",
+				"category": "svls-vscode"
 			}
 		],
 		"configuration":[
