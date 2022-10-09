@@ -32,11 +32,13 @@ export function activate(context: ExtensionContext) {
 	let svlint_config: string | undefined = workspace.getConfiguration("svls-vscode").get("svlintToml.path");
 	if (typeof svlint_config !== undefined)	process.env.SVLINT_CONFIG = svlint_config;
 
+	let svls_binary_path: string | undefined = workspace.getConfiguration("svls-vscode").get("svlsBinary.path");
+	if (typeof svls_binary_path === "undefined")	svls_binary_path = "svls";
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
 	let serverOptions: ServerOptions = {
-		run: {command: "svls"},
-		debug: {command: "svls", args: ["--debug"]},
+		run: {command: svls_binary_path},
+		debug: {command: svls_binary_path, args: ["--debug"]},
 	};
 
 	// Options to control the language client
