@@ -35,7 +35,6 @@
 		["package", "endpackage"],
 		["primitive", "endprimitive"],
 		["program", "endprogram"],
-		["property", "else"],
 		["property", "endproperty"],
 		["randcase", "endcase"],
 		["specify", "endspecify"],
