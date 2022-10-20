@@ -2,7 +2,7 @@
 	"name": "svls-vscode",
 	"displayName": "svls-vscode",
 	"description": "SystemVerilog language server client for Visual Studio Code",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "dalance",
 	"engines": {
 		"vscode": "^1.39.0"
