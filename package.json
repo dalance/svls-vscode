@@ -30,6 +30,11 @@
 				"title": "Set path to svlint .toml configuration file",
 				"category": "svls-vscode",
 				"icon": "$(gear)"
+			},
+			{
+				"command": "svls-vscode.restartSvls",
+				"title": "Restart svls",
+				"category": "svls-vscode"
 			}
 		],
 		"configuration":[
@@ -43,6 +48,12 @@
 						"markdownDescription": "Override the .toml configuration file to be used by svlint. Sets the `SVLINT_CONFIG` environment variable. When not set svlint searches for `.svlint.toml` within the Workspace folder.",
 						"pattern": "^(?:(?:~?\\/|[a-zA-Z]:\\\\)[\\/\\\\\\w\\._-]*\\.toml)$|^$",
 						"patternErrorMessage": "Must be a path to a .toml file"
+					},
+					"svls-vscode.svlsBinary.path": {
+						"scope": "window",
+						"type": "string",
+						"default": "svls",
+						"markdownDescription": "Specify svls binary path."
 					}
 				}
 			}
